@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas: v-slot</title>
+  </head>
+  <body>
+    
+    <div id="directives">
+      
+      <text-component>
+        <template v-slot:header>
+          <h2>Este é o cabeçalho do site</h2>
+        </template>
+        <template v-slot:paragrafo>
+          Marcelo Hoffmeister
+        </template>
+      </text-component>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+    <script>
+
+      Vue.component('text-component', {
+        template: `
+          <div>
+            <header>
+              <slot name="header"></slot>
+            </header>
+            <p>
+              <slot name="paragrafo"></slot>
+            </p>
+          </div>
+        `
+      })
+
+      let app = new Vue({
+        el: '#directives',
+        data: {
+          
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

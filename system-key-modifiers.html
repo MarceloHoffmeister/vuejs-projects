@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Modificadores de teclas do sistema</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    
+    <div id="events">
+      
+    <div class="container">
+      <h1>Hcode Treinamentos</h1>
+      <form action="" class="form" @submit.prevent>
+        <div class="form-group">
+          <label for="">Pressione as teclas abaixo</label>
+          <input type="text" class="form-control" placeholder="Pressione Ctrl" @keydown.ctrl="exec">
+          <input type="text" class="form-control" placeholder="Pressione Alt" @keydown.alt="exec">
+          <input type="text" class="form-control" placeholder="Pressione Shift" @keydown.shift="exec">
+          <input type="text" class="form-control" placeholder="Pressione Meta" @keydown.meta="exec">
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col" @click.ctrl.exact="toggleClass">1</div>
+        <div class="col" @click.ctrl.exact="toggleClass">2</div>
+        <div class="col" @click.ctrl.exact="toggleClass">3</div>
+        <div class="col" @click.ctrl.exact="toggleClass">4</div>
+      </div>
+    </div>
+     
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+      let app = new Vue({
+        el: '#events',
+        data: {
+          
+        },
+        methods: {
+          exec(e) {
+            console.log(e.key);
+          },
+          toggleClass(event) {
+            let el = event.target;
+
+            let isClass = el.classList.contains('bg-info');
+
+            let method;
+
+            if (isClass) {
+              method = 'remove';
+            } else {
+              method = 'add';
+            }
+
+            eval(`el.classList.${method}('bg-info')`);
+          }
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

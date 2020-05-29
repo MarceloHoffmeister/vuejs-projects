@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes global</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    
+    <div id="componentes">
+      <div class="container">
+        
+        <text-render text="Hcode Treinamentos"></text-render>
+        <text-render text="Sejam bem vindos"></text-render>
+        <text-render text="Olá mundo"></text-render>
+        
+        <hr>
+
+        <list-component></list-component>
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+      Vue.component('text-render', {
+        props: ['text'],
+        template: `
+          <div>
+            <h4>{{ text }}</h4>
+          </div>
+        `
+      });
+
+      Vue.component('list-component', {
+        template: `
+          <ul>
+            <li v-for="person in names">{{ person }}</li>
+          </ul>
+        `,
+        data: function() {
+          return {
+            names: ['João Rangel', 'Djalma Sindeuax', 'Glaucio Daniel']
+          }
+        }
+      })
+
+      let app = new Vue({
+        el: '#componentes',
+        data: {
+          
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

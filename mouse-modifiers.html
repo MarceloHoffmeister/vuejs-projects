@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Modificadores de mouse</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    
+    <div id="events">
+      <div class="container">
+        <h1>Hcode Treinamentos</h1>
+        <form action="" class="form" @submit.prevent>
+          <div class="form-group">
+            <label for="">Pressione as teclas abaixo</label>
+            <input type="text" class="form-control" placeholder="Aperte o botão esquerdo do mouse" @click.left="exec">
+            <input type="text" class="form-control" placeholder="Aperte o botão direito do mouse" @click.prevent.right="exec">
+            <input type="text" class="form-control" placeholder="Aperte o botão do meio do mouse" @click.middle="exec">
+          </div>
+        </form>     
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+      let app = new Vue({
+        el: '#events',
+        data: {
+          
+        },
+        methods: {
+          exec(e) {
+            console.log(e.type);
+          }
+        }
+      })
+
+    </script>
+
+  </body>
+</html>

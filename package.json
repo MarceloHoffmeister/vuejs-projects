@@ -1,0 +1,24 @@
+{
+  "name": "vue-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarceloHoffmeister/vuejs-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarceloHoffmeister/vuejs-projects/issues"
+  },
+  "homepage": "https://github.com/MarceloHoffmeister/vuejs-projects#readme",
+  "dependencies": {
+    "animate.css": "^4.0.0",
+    "bootstrap": "^4.4.1"
+  }
+}
